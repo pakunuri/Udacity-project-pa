@@ -1,0 +1,1075 @@
+2020/07/20 01:38:41.607043 [INFO] Starting...
+2020/07/20 01:38:41.607078 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/20 01:38:41.607176 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/20 01:38:41.607234 [INFO] Engine received EB command userdata-exec
+
+2020/07/20 01:38:41.673184 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/20 01:38:42.372164 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/20 01:38:43.216806 [INFO] This is a workflow controlled instance.
+2020/07/20 01:38:43.217052 [INFO] Engine command: (env-launch)
+
+2020/07/20 01:38:43.218918 [INFO] Executing instruction: SyncClock
+2020/07/20 01:38:43.218924 [INFO] Starting SyncClock
+2020/07/20 01:38:43.218942 [INFO] Running command /bin/sh -c /usr/bin/chronyc tracking
+2020/07/20 01:38:43.268298 [INFO] Reference ID    : A9FEA97B (169.254.169.123)
+Stratum         : 4
+Ref time (UTC)  : Mon Jul 20 01:38:40 2020
+System time     : 0.000002246 seconds slow of NTP time
+Last offset     : +0.000895354 seconds
+RMS offset      : 0.000895354 seconds
+Frequency       : 25.552 ppm slow
+Residual freq   : +209.443 ppm
+Skew            : 10.116 ppm
+Root delay      : 0.002781459 seconds
+Root dispersion : 0.000884970 seconds
+Update interval : 1.9 seconds
+Leap status     : Normal
+
+2020/07/20 01:38:43.268330 [INFO] Running command /bin/sh -c /usr/bin/chronyc -a makestep
+2020/07/20 01:38:43.271348 [INFO] 200 OK
+
+2020/07/20 01:38:43.271383 [INFO] Skipping Configure OS
+2020/07/20 01:38:43.271390 [INFO] Skipping LockGUID
+2020/07/20 01:38:43.271395 [INFO] Skipping GenerateEBBanner
+2020/07/20 01:38:43.271401 [INFO] Skipping Install Process Manager
+2020/07/20 01:38:43.271406 [INFO] Skipping install proxy
+2020/07/20 01:38:43.271411 [INFO] Skipping installhealthd
+2020/07/20 01:38:43.271417 [INFO] Skipping Install Log Streaming Manager
+2020/07/20 01:38:43.271422 [INFO] Skipping install X-Ray
+2020/07/20 01:38:43.271429 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:43.271433 [INFO] Executing instruction: installSqsd
+2020/07/20 01:38:43.271439 [INFO] This is a web server environment instance, skip install sqsd daemon ...
+2020/07/20 01:38:43.271444 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:43.271447 [INFO] Executing instruction: bootstraphealthd
+2020/07/20 01:38:43.271452 [INFO] this is an enhanced health env ...
+2020/07/20 01:38:43.271456 [INFO] bootstrap healthd....
+2020/07/20 01:38:43.271481 [INFO] Running command /bin/sh -c /usr/bin/id -u healthd || /usr/sbin/useradd --user-group healthd -s /sbin/nologin --create-home
+2020/07/20 01:38:43.540665 [ERROR] /usr/bin/id: healthd: no such user
+
+2020/07/20 01:38:43.557913 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/cron.logcleanup.elasticbeanstalk.healthd.proxy.conf to /etc/cron.hourly/cron.logcleanup.elasticbeanstalk.healthd.proxy.conf
+2020/07/20 01:38:43.588412 [INFO] Running command /bin/sh -c systemctl show -p PartOf healthd.service
+2020/07/20 01:38:43.617076 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/20 01:38:43.746704 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/20 01:38:43.751294 [INFO] Running command /bin/sh -c systemctl is-enabled aws-eb.target
+2020/07/20 01:38:43.786408 [INFO] Running command /bin/sh -c systemctl enable aws-eb.target
+2020/07/20 01:38:43.915854 [INFO] Running command /bin/sh -c systemctl start aws-eb.target
+2020/07/20 01:38:43.925706 [INFO] Running command /bin/sh -c systemctl enable healthd.service
+2020/07/20 01:38:44.060770 [ERROR] Created symlink from /etc/systemd/system/multi-user.target.wants/healthd.service to /etc/systemd/system/healthd.service.
+
+2020/07/20 01:38:44.060813 [INFO] Running command /bin/sh -c systemctl show -p PartOf healthd.service
+2020/07/20 01:38:44.078836 [INFO] Running command /bin/sh -c systemctl is-active healthd.service
+2020/07/20 01:38:44.083054 [INFO] Running command /bin/sh -c systemctl start healthd.service
+2020/07/20 01:38:44.114005 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.114019 [INFO] Executing instruction: GetSetupProxyLog
+2020/07/20 01:38:44.114099 [INFO] Skipping Install yum packages
+2020/07/20 01:38:44.114106 [INFO] Skipping Install default nodejs
+2020/07/20 01:38:44.114111 [INFO] Skipping MarkBaked
+2020/07/20 01:38:44.114118 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.114122 [INFO] Executing instruction: TuneSystemSettings
+2020/07/20 01:38:44.114126 [INFO] Starting TuneSystemSettings
+2020/07/20 01:38:44.114131 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.114812 [INFO] Executing instruction: GetSetupLogRotate
+2020/07/20 01:38:44.114820 [INFO] Initialize LogRotate files and directories
+2020/07/20 01:38:44.131974 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.131986 [INFO] Executing instruction: BootstrapCFNHup
+2020/07/20 01:38:44.131993 [INFO] Bootstrap cfn-hup
+2020/07/20 01:38:44.133402 [INFO] Copying file /opt/elasticbeanstalk/config/private/aws-eb-command-handler.conf to /etc/cfn/hooks.d/aws-eb-command-handler.conf
+2020/07/20 01:38:44.134767 [INFO] Executing instruction: StartCFNHup
+2020/07/20 01:38:44.134775 [INFO] Start cfn-hup
+2020/07/20 01:38:44.134799 [INFO] Running command /bin/sh -c systemctl is-active cfn-hup.service
+2020/07/20 01:38:44.138703 [INFO] Running command /bin/sh -c systemctl is-active cfn-hup.service
+2020/07/20 01:38:44.148217 [INFO] Running command /bin/sh -c systemctl show -p PartOf cfn-hup.service
+2020/07/20 01:38:44.161779 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/20 01:38:44.270941 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/20 01:38:44.278097 [INFO] Running command /bin/sh -c systemctl is-enabled aws-eb.target
+2020/07/20 01:38:44.281849 [INFO] Running command /bin/sh -c systemctl enable aws-eb.target
+2020/07/20 01:38:44.378683 [INFO] Running command /bin/sh -c systemctl start aws-eb.target
+2020/07/20 01:38:44.385758 [INFO] Running command /bin/sh -c systemctl enable cfn-hup.service
+2020/07/20 01:38:44.490657 [ERROR] Created symlink from /etc/systemd/system/multi-user.target.wants/cfn-hup.service to /etc/systemd/system/cfn-hup.service.
+
+2020/07/20 01:38:44.490698 [INFO] Running command /bin/sh -c systemctl show -p PartOf cfn-hup.service
+2020/07/20 01:38:44.496882 [INFO] Running command /bin/sh -c systemctl is-active cfn-hup.service
+2020/07/20 01:38:44.501484 [INFO] Running command /bin/sh -c systemctl start cfn-hup.service
+2020/07/20 01:38:44.570019 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.570034 [INFO] Executing instruction: SetupPublishLogCronjob
+2020/07/20 01:38:44.570038 [INFO] Setup publish logs cron job...
+2020/07/20 01:38:44.570043 [INFO] Copying file /opt/elasticbeanstalk/config/private/logtasks/cron/publishlogs to /etc/cron.d/publishlogs
+2020/07/20 01:38:44.571267 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.571277 [INFO] Executing instruction: MarkBootstrapped
+2020/07/20 01:38:44.571281 [INFO] Starting MarkBootstrapped
+2020/07/20 01:38:44.571286 [INFO] Instance has NOT been bootstrapped
+2020/07/20 01:38:44.571334 [INFO] Marked instance as Bootstrapped
+2020/07/20 01:38:44.571339 [INFO] Executing instruction: Save CFN Stack Info
+2020/07/20 01:38:44.571371 [INFO] Starting SwitchCFNStack
+2020/07/20 01:38:44.571377 [INFO] Executing cleanup logic
+2020/07/20 01:38:44.571385 [INFO] Platform Engine finished execution on command: env-launch
+
+2020/07/20 01:41:31.514034 [INFO] Starting...
+2020/07/20 01:41:31.514073 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/20 01:41:31.514133 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/20 01:41:31.514195 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/20 01:41:31.617164 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/20 01:41:31.957434 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/20 01:41:32.285340 [INFO] checking whether command app-deploy is applicable to this instance...
+2020/07/20 01:41:32.285362 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/20 01:41:32.285366 [INFO] Engine command: (app-deploy)
+
+2020/07/20 01:41:32.285373 [INFO] Downloading EB Application...
+2020/07/20 01:41:32.285377 [INFO] Region: us-east-1
+2020/07/20 01:41:32.285380 [INFO] envID: e-xubwbu3mnp
+2020/07/20 01:41:32.285384 [INFO] envBucket: elasticbeanstalk-us-east-1-904333704588
+2020/07/20 01:41:32.285388 [INFO] Using manifest file name from command request
+2020/07/20 01:41:32.285436 [INFO] Unable to get version manifest file.
+2020/07/20 01:41:32.285441 [INFO] Downloading latest manifest available.
+2020/07/20 01:41:32.285445 [INFO] Download latest app version manifest
+2020/07/20 01:41:32.285538 [INFO] resources/environments/e-xubwbu3mnp/_runtime/versions/manifest
+2020/07/20 01:41:32.340601 [INFO] latestManifest key *: resources/environments/e-xubwbu3mnp/_runtime/versions/manifest_1595209039109
+
+2020/07/20 01:41:32.340779 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-904333704588, object: /resources/environments/e-xubwbu3mnp/_runtime/versions/manifest_1595209039109
+2020/07/20 01:41:32.358919 [INFO] Download successful136bytes downloaded
+2020/07/20 01:41:32.358930 [INFO] Trying to read and parse version manifest...
+2020/07/20 01:41:32.359031 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-904333704588, object: /resources/environments/e-xubwbu3mnp/_runtime/_versions/udagram-aku-dev/app-200719_213709
+2020/07/20 01:41:32.371871 [INFO] Download successful21118bytes downloaded
+2020/07/20 01:41:32.372181 [INFO] Executing instruction: ElectLeader
+2020/07/20 01:41:32.372189 [INFO] Running leader election for instance i-0a3d037fb935e44c8...
+2020/07/20 01:41:32.372193 [INFO] Calling the cfn-elect-cmd-leader to elect the command leader.
+2020/07/20 01:41:32.372209 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-elect-cmd-leader --stack arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 --command-name ElasticBeanstalkCommand-AWSEBAutoScalingGroup --invocation-id 36ae3cfc-3d11-4d9c-aee8-7c2f551c9921 --listener-id i-0a3d037fb935e44c8 --region us-east-1
+2020/07/20 01:41:32.701519 [INFO] Instance is Leader.
+2020/07/20 01:41:32.701563 [INFO] Executing instruction: stopSqsd
+2020/07/20 01:41:32.701570 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/20 01:41:32.701586 [INFO] Executing instruction: PreBuildEbExtension
+2020/07/20 01:41:32.701592 [INFO] Starting executing the config set Infra-EmbeddedPreBuild.
+2020/07/20 01:41:32.701612 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPreBuild
+2020/07/20 01:41:33.051916 [INFO] Finished executing the config set Infra-EmbeddedPreBuild.
+
+2020/07/20 01:41:33.051937 [INFO] Executing instruction: StageApplication
+2020/07/20 01:41:33.052041 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2020/07/20 01:41:33.052068 [INFO] Running command /bin/sh -c /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2020/07/20 01:41:33.057581 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2020/07/20 01:41:33.058315 [INFO] Executing instruction: RunPreBuildHooks
+2020/07/20 01:41:33.058373 [INFO] The dir .platform/hooks/prebuild/ does not exist in the application. Skipping this step...
+2020/07/20 01:41:33.058397 [INFO] Executing instruction: Install customer specified node.js version
+2020/07/20 01:41:33.058413 [INFO] installing specified nodejs version...
+2020/07/20 01:41:33.058493 [INFO] there is no nodejs version specified in package.json, skip installing specified version of nodejs
+2020/07/20 01:41:33.058499 [INFO] Executing instruction: Use NPM to install dependencies
+2020/07/20 01:41:33.058510 [INFO] use npm to install dependencies
+2020/07/20 01:41:33.058528 [INFO] No plugin in cfn metadata.
+2020/07/20 01:41:33.058542 [INFO] Running command /bin/sh -c npm config set jobs 1
+2020/07/20 01:41:34.045586 [INFO] Running command /bin/sh -c npm --production install
+2020/07/20 01:41:47.856465 [INFO] 
+> bcrypt@3.0.8 install /var/app/staging/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+[bcrypt] Success: "/var/app/staging/node_modules/bcrypt/lib/binding/bcrypt_lib.node" is installed via remote
+added 198 packages from 305 contributors and audited 393 packages in 12.748s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+2020/07/20 01:41:47.856482 [ERROR] npm WARN deprecated bcrypt@3.0.8: versions < v5.0.0 do not handle NUL in passwords properly
+npm WARN deprecated mkdirp@0.5.4: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+node-pre-gyp WARN Using needle for node-pre-gyp https download 
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules/chokidar/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm WARN udacity-c2-restapi@1.0.0 No description
+npm WARN udacity-c2-restapi@1.0.0 No repository field.
+
+
+2020/07/20 01:41:47.856512 [INFO] Running command /bin/sh -c npm --production rebuild
+2020/07/20 01:41:49.125562 [INFO] 
+> bcrypt@3.0.8 install /var/app/staging/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+[bcrypt] Success: "/var/app/staging/node_modules/bcrypt/lib/binding/bcrypt_lib.node" already installed
+Pass --update-binary to reinstall or --build-from-source to recompile
+@types/bcrypt@3.0.0 /var/app/staging/node_modules/@types/bcrypt
+@types/jsonwebtoken@8.5.0 /var/app/staging/node_modules/@types/jsonwebtoken
+@types/node@14.0.23 /var/app/staging/node_modules/@types/jsonwebtoken/node_modules/@types/node
+aws-sdk@2.715.0 /var/app/staging/node_modules/aws-sdk
+buffer@4.9.2 /var/app/staging/node_modules/buffer
+base64-js@1.3.1 /var/app/staging/node_modules/base64-js
+ieee754@1.1.13 /var/app/staging/node_modules/ieee754
+isarray@1.0.0 /var/app/staging/node_modules/isarray
+events@1.1.1 /var/app/staging/node_modules/events
+jmespath@0.15.0 /var/app/staging/node_modules/jmespath
+querystring@0.2.0 /var/app/staging/node_modules/querystring
+sax@1.2.1 /var/app/staging/node_modules/sax
+url@0.10.3 /var/app/staging/node_modules/url
+punycode@1.3.2 /var/app/staging/node_modules/punycode
+uuid@3.3.2 /var/app/staging/node_modules/uuid
+xml2js@0.4.19 /var/app/staging/node_modules/xml2js
+xmlbuilder@9.0.7 /var/app/staging/node_modules/xmlbuilder
+bcrypt@3.0.8 /var/app/staging/node_modules/bcrypt
+nan@2.14.0 /var/app/staging/node_modules/nan
+node-pre-gyp@0.14.0 /var/app/staging/node_modules/node-pre-gyp
+detect-libc@1.0.3 /var/app/staging/node_modules/detect-libc
+mkdirp@0.5.5 /var/app/staging/node_modules/mkdirp
+minimist@1.2.5 /var/app/staging/node_modules/minimist
+needle@2.5.0 /var/app/staging/node_modules/needle
+debug@3.2.6 /var/app/staging/node_modules/debug
+ms@2.1.2 /var/app/staging/node_modules/ms
+iconv-lite@0.4.24 /var/app/staging/node_modules/iconv-lite
+safer-buffer@2.1.2 /var/app/staging/node_modules/safer-buffer
+sax@1.2.4 /var/app/staging/node_modules/needle/node_modules/sax
+nopt@4.0.3 /var/app/staging/node_modules/nopt
+abbrev@1.1.1 /var/app/staging/node_modules/abbrev
+osenv@0.1.5 /var/app/staging/node_modules/osenv
+os-homedir@1.0.2 /var/app/staging/node_modules/os-homedir
+os-tmpdir@1.0.2 /var/app/staging/node_modules/os-tmpdir
+npm-packlist@1.4.8 /var/app/staging/node_modules/npm-packlist
+ignore-walk@3.0.3 /var/app/staging/node_modules/ignore-walk
+minimatch@3.0.4 /var/app/staging/node_modules/minimatch
+brace-expansion@1.1.11 /var/app/staging/node_modules/brace-expansion
+balanced-match@1.0.0 /var/app/staging/node_modules/balanced-match
+concat-map@0.0.1 /var/app/staging/node_modules/concat-map
+npm-bundled@1.1.1 /var/app/staging/node_modules/npm-bundled
+npm-normalize-package-bin@1.0.1 /var/app/staging/node_modules/npm-normalize-package-bin
+npmlog@4.1.2 /var/app/staging/node_modules/npmlog
+are-we-there-yet@1.1.5 /var/app/staging/node_modules/are-we-there-yet
+delegates@1.0.0 /var/app/staging/node_modules/delegates
+readable-stream@2.3.7 /var/app/staging/node_modules/readable-stream
+core-util-is@1.0.2 /var/app/staging/node_modules/core-util-is
+inherits@2.0.4 /var/app/staging/node_modules/inherits
+process-nextick-args@2.0.1 /var/app/staging/node_modules/process-nextick-args
+safe-buffer@5.1.2 /var/app/staging/node_modules/safe-buffer
+string_decoder@1.1.1 /var/app/staging/node_modules/string_decoder
+util-deprecate@1.0.2 /var/app/staging/node_modules/util-deprecate
+console-control-strings@1.1.0 /var/app/staging/node_modules/console-control-strings
+gauge@2.7.4 /var/app/staging/node_modules/gauge
+aproba@1.2.0 /var/app/staging/node_modules/aproba
+has-unicode@2.0.1 /var/app/staging/node_modules/has-unicode
+object-assign@4.1.1 /var/app/staging/node_modules/object-assign
+signal-exit@3.0.3 /var/app/staging/node_modules/signal-exit
+string-width@1.0.2 /var/app/staging/node_modules/string-width
+code-point-at@1.1.0 /var/app/staging/node_modules/code-point-at
+is-fullwidth-code-point@1.0.0 /var/app/staging/node_modules/is-fullwidth-code-point
+number-is-nan@1.0.1 /var/app/staging/node_modules/number-is-nan
+strip-ansi@3.0.1 /var/app/staging/node_modules/strip-ansi
+ansi-regex@2.1.1 /var/app/staging/node_modules/ansi-regex
+wide-align@1.1.3 /var/app/staging/node_modules/wide-align
+set-blocking@2.0.0 /var/app/staging/node_modules/set-blocking
+rc@1.2.8 /var/app/staging/node_modules/rc
+deep-extend@0.6.0 /var/app/staging/node_modules/deep-extend
+ini@1.3.5 /var/app/staging/node_modules/ini
+strip-json-comments@2.0.1 /var/app/staging/node_modules/strip-json-comments
+rimraf@2.7.1 /var/app/staging/node_modules/rimraf
+glob@7.1.6 /var/app/staging/node_modules/glob
+fs.realpath@1.0.0 /var/app/staging/node_modules/fs.realpath
+inflight@1.0.6 /var/app/staging/node_modules/inflight
+once@1.4.0 /var/app/staging/node_modules/once
+wrappy@1.0.2 /var/app/staging/node_modules/wrappy
+path-is-absolute@1.0.1 /var/app/staging/node_modules/path-is-absolute
+semver@5.7.1 /var/app/staging/node_modules/semver
+tar@4.4.13 /var/app/staging/node_modules/tar
+chownr@1.1.4 /var/app/staging/node_modules/chownr
+fs-minipass@1.2.7 /var/app/staging/node_modules/fs-minipass
+minipass@2.9.0 /var/app/staging/node_modules/minipass
+yallist@3.1.1 /var/app/staging/node_modules/yallist
+minizlib@1.3.3 /var/app/staging/node_modules/minizlib
+body-parser@1.19.0 /var/app/staging/node_modules/body-parser
+bytes@3.1.0 /var/app/staging/node_modules/bytes
+content-type@1.0.4 /var/app/staging/node_modules/content-type
+debug@2.6.9 /var/app/staging/node_modules/body-parser/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/body-parser/node_modules/ms
+depd@1.1.2 /var/app/staging/node_modules/depd
+http-errors@1.7.2 /var/app/staging/node_modules/http-errors
+inherits@2.0.3 /var/app/staging/node_modules/http-errors/node_modules/inherits
+setprototypeof@1.1.1 /var/app/staging/node_modules/setprototypeof
+statuses@1.5.0 /var/app/staging/node_modules/statuses
+toidentifier@1.0.0 /var/app/staging/node_modules/toidentifier
+on-finished@2.3.0 /var/app/staging/node_modules/on-finished
+ee-first@1.1.1 /var/app/staging/node_modules/ee-first
+qs@6.7.0 /var/app/staging/node_modules/qs
+raw-body@2.4.0 /var/app/staging/node_modules/raw-body
+unpipe@1.0.0 /var/app/staging/node_modules/unpipe
+type-is@1.6.18 /var/app/staging/node_modules/type-is
+media-typer@0.3.0 /var/app/staging/node_modules/media-typer
+mime-types@2.1.27 /var/app/staging/node_modules/mime-types
+mime-db@1.44.0 /var/app/staging/node_modules/mime-db
+email-validator@2.0.4 /var/app/staging/node_modules/email-validator
+express@4.17.1 /var/app/staging/node_modules/express
+accepts@1.3.7 /var/app/staging/node_modules/accepts
+negotiator@0.6.2 /var/app/staging/node_modules/negotiator
+array-flatten@1.1.1 /var/app/staging/node_modules/array-flatten
+content-disposition@0.5.3 /var/app/staging/node_modules/content-disposition
+cookie@0.4.0 /var/app/staging/node_modules/cookie
+cookie-signature@1.0.6 /var/app/staging/node_modules/cookie-signature
+debug@2.6.9 /var/app/staging/node_modules/express/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/express/node_modules/ms
+encodeurl@1.0.2 /var/app/staging/node_modules/encodeurl
+escape-html@1.0.3 /var/app/staging/node_modules/escape-html
+etag@1.8.1 /var/app/staging/node_modules/etag
+finalhandler@1.1.2 /var/app/staging/node_modules/finalhandler
+debug@2.6.9 /var/app/staging/node_modules/finalhandler/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/finalhandler/node_modules/ms
+parseurl@1.3.3 /var/app/staging/node_modules/parseurl
+fresh@0.5.2 /var/app/staging/node_modules/fresh
+merge-descriptors@1.0.1 /var/app/staging/node_modules/merge-descriptors
+methods@1.1.2 /var/app/staging/node_modules/methods
+path-to-regexp@0.1.7 /var/app/staging/node_modules/path-to-regexp
+proxy-addr@2.0.6 /var/app/staging/node_modules/proxy-addr
+forwarded@0.1.2 /var/app/staging/node_modules/forwarded
+ipaddr.js@1.9.1 /var/app/staging/node_modules/ipaddr.js
+range-parser@1.2.1 /var/app/staging/node_modules/range-parser
+send@0.17.1 /var/app/staging/node_modules/send
+debug@2.6.9 /var/app/staging/node_modules/send/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/send/node_modules/debug/node_modules/ms
+destroy@1.0.4 /var/app/staging/node_modules/destroy
+mime@1.6.0 /var/app/staging/node_modules/mime
+ms@2.1.1 /var/app/staging/node_modules/send/node_modules/ms
+serve-static@1.14.1 /var/app/staging/node_modules/serve-static
+utils-merge@1.0.1 /var/app/staging/node_modules/utils-merge
+vary@1.1.2 /var/app/staging/node_modules/vary
+jsonwebtoken@8.5.1 /var/app/staging/node_modules/jsonwebtoken
+jws@3.2.2 /var/app/staging/node_modules/jws
+jwa@1.4.1 /var/app/staging/node_modules/jwa
+buffer-equal-constant-time@1.0.1 /var/app/staging/node_modules/buffer-equal-constant-time
+ecdsa-sig-formatter@1.0.11 /var/app/staging/node_modules/ecdsa-sig-formatter
+lodash.includes@4.3.0 /var/app/staging/node_modules/lodash.includes
+lodash.isboolean@3.0.3 /var/app/staging/node_modules/lodash.isboolean
+lodash.isinteger@4.0.4 /var/app/staging/node_modules/lodash.isinteger
+lodash.isnumber@3.0.3 /var/app/staging/node_modules/lodash.isnumber
+lodash.isplainobject@4.0.6 /var/app/staging/node_modules/lodash.isplainobject
+lodash.isstring@4.0.1 /var/app/staging/node_modules/lodash.isstring
+lodash.once@4.1.1 /var/app/staging/node_modules/lodash.once
+pg@7.18.2 /var/app/staging/node_modules/pg
+buffer-writer@2.0.0 /var/app/staging/node_modules/buffer-writer
+packet-reader@1.0.0 /var/app/staging/node_modules/packet-reader
+pg-connection-string@0.1.3 /var/app/staging/node_modules/pg-connection-string
+pg-packet-stream@1.1.0 /var/app/staging/node_modules/pg-packet-stream
+pg-pool@2.0.10 /var/app/staging/node_modules/pg-pool
+pg-types@2.2.0 /var/app/staging/node_modules/pg-types
+pg-int8@1.0.1 /var/app/staging/node_modules/pg-int8
+postgres-array@2.0.0 /var/app/staging/node_modules/postgres-array
+postgres-bytea@1.0.0 /var/app/staging/node_modules/postgres-bytea
+postgres-date@1.0.5 /var/app/staging/node_modules/postgres-date
+postgres-interval@1.2.0 /var/app/staging/node_modules/postgres-interval
+xtend@4.0.2 /var/app/staging/node_modules/xtend
+pgpass@1.0.2 /var/app/staging/node_modules/pgpass
+split@1.0.1 /var/app/staging/node_modules/split
+through@2.3.8 /var/app/staging/node_modules/through
+semver@4.3.2 /var/app/staging/node_modules/pg/node_modules/semver
+reflect-metadata@0.1.13 /var/app/staging/node_modules/reflect-metadata
+sequelize@5.22.3 /var/app/staging/node_modules/sequelize
+bluebird@3.7.2 /var/app/staging/node_modules/bluebird
+cls-bluebird@2.1.0 /var/app/staging/node_modules/cls-bluebird
+is-bluebird@1.0.2 /var/app/staging/node_modules/is-bluebird
+shimmer@1.2.1 /var/app/staging/node_modules/shimmer
+debug@4.1.1 /var/app/staging/node_modules/sequelize/node_modules/debug
+dottie@2.0.2 /var/app/staging/node_modules/dottie
+inflection@1.12.0 /var/app/staging/node_modules/inflection
+lodash@4.17.19 /var/app/staging/node_modules/lodash
+moment@2.27.0 /var/app/staging/node_modules/moment
+moment-timezone@0.5.31 /var/app/staging/node_modules/moment-timezone
+retry-as-promised@3.2.0 /var/app/staging/node_modules/retry-as-promised
+any-promise@1.3.0 /var/app/staging/node_modules/any-promise
+semver@6.3.0 /var/app/staging/node_modules/sequelize/node_modules/semver
+sequelize-pool@2.3.0 /var/app/staging/node_modules/sequelize-pool
+toposort-class@1.0.1 /var/app/staging/node_modules/toposort-class
+uuid@3.4.0 /var/app/staging/node_modules/sequelize/node_modules/uuid
+validator@10.11.0 /var/app/staging/node_modules/validator
+wkx@0.4.8 /var/app/staging/node_modules/wkx
+@types/node@14.0.23 /var/app/staging/node_modules/wkx/node_modules/@types/node
+sequelize-typescript@0.6.11 /var/app/staging/node_modules/sequelize-typescript
+@types/bluebird@3.5.26 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/bluebird
+@types/node@11.12.2 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/node
+@types/sequelize@4.28.1 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/sequelize
+@types/continuation-local-storage@3.2.2 /var/app/staging/node_modules/@types/continuation-local-storage
+@types/node@14.0.23 /var/app/staging/node_modules/@types/continuation-local-storage/node_modules/@types/node
+@types/lodash@4.14.157 /var/app/staging/node_modules/@types/lodash
+@types/validator@13.1.0 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/validator
+es6-shim@0.35.3 /var/app/staging/node_modules/es6-shim
+glob@7.1.2 /var/app/staging/node_modules/sequelize-typescript/node_modules/glob
+
+2020/07/20 01:41:49.125603 [ERROR] node-pre-gyp WARN Using needle for node-pre-gyp https download 
+
+2020/07/20 01:41:49.125612 [INFO] Executing instruction: check Procfile
+2020/07/20 01:41:49.125616 [INFO] checking Procfile
+2020/07/20 01:41:49.125631 [INFO] no Procfile found, generating Procfile
+2020/07/20 01:41:49.125647 [INFO] checking package.json file
+2020/07/20 01:41:49.125655 [INFO] found package.json file, using npm to start application
+2020/07/20 01:41:49.125720 [INFO] Executing instruction: configure X-Ray
+2020/07/20 01:41:49.125725 [INFO] X-Ray is not enabled.
+2020/07/20 01:41:49.125729 [INFO] Executing instruction: configure proxy Nginx
+2020/07/20 01:41:49.125843 [INFO] No plugin in cfn metadata.
+2020/07/20 01:41:49.131641 [INFO] Executing instruction: configure healthd specific proxy conf
+2020/07/20 01:41:49.134569 [INFO] copy healthd related conf to proxy staging dir ... 
+2020/07/20 01:41:49.134584 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/healthd_logformat.conf to /var/proxy/staging/nginx/conf.d/healthd_logformat.conf
+2020/07/20 01:41:49.135760 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/healthd.conf to /var/proxy/staging/nginx/conf.d/elasticbeanstalk/healthd.conf
+2020/07/20 01:41:49.137147 [INFO] Executing instruction: configure log streaming
+2020/07/20 01:41:49.137161 [INFO] log streaming is not enabled
+2020/07/20 01:41:49.137169 [INFO] disable log stream
+2020/07/20 01:41:49.137200 [INFO] Running command /bin/sh -c systemctl show -p PartOf amazon-cloudwatch-agent.service
+2020/07/20 01:41:49.143613 [INFO] Running command /bin/sh -c systemctl stop amazon-cloudwatch-agent.service
+2020/07/20 01:41:49.148327 [INFO] Executing instruction: GetToggleForceRotate
+2020/07/20 01:41:49.148338 [INFO] Checking if logs need forced rotation
+2020/07/20 01:41:49.148356 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/20 01:41:49.478728 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/20 01:41:49.761675 [INFO] Copying file /opt/elasticbeanstalk/config/private/rsyslog.conf to /etc/rsyslog.d/web.conf
+2020/07/20 01:41:49.762854 [INFO] Running command /bin/sh -c systemctl restart rsyslog.service
+2020/07/20 01:41:49.797206 [INFO] Executing instruction: PostBuildEbExtension
+2020/07/20 01:41:49.797218 [INFO] No plugin in cfn metadata.
+2020/07/20 01:41:49.797225 [INFO] Starting executing the config set Infra-EmbeddedPostBuild.
+2020/07/20 01:41:49.797241 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPostBuild
+2020/07/20 01:41:50.146505 [INFO] Finished executing the config set Infra-EmbeddedPostBuild.
+
+2020/07/20 01:41:50.146530 [INFO] Executing instruction: CleanEbExtensions
+2020/07/20 01:41:50.146550 [INFO] Cleaned ebextensions subdirectories from app staging directory.
+2020/07/20 01:41:50.146554 [INFO] Executing instruction: RunPreDeployHooks
+2020/07/20 01:41:50.146562 [INFO] The dir .platform/hooks/predeploy/ does not exist in the application. Skipping this step...
+2020/07/20 01:41:50.146577 [INFO] Executing instruction: stop X-Ray
+2020/07/20 01:41:50.146582 [INFO] stop X-Ray ...
+2020/07/20 01:41:50.146599 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/07/20 01:41:50.155706 [WARN] stopProcess Warning: process xray is not registered 
+2020/07/20 01:41:50.155725 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/07/20 01:41:50.162691 [INFO] Executing instruction: stop proxy
+2020/07/20 01:41:50.162724 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/20 01:41:50.172833 [WARN] stopProcess Warning: process nginx is not registered 
+2020/07/20 01:41:50.172865 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/07/20 01:41:50.177576 [INFO] Executing instruction: FlipApplication
+2020/07/20 01:41:50.177587 [INFO] Fetching environment variables...
+2020/07/20 01:41:50.177593 [INFO] No plugin in cfn metadata.
+2020/07/20 01:41:50.177596 [INFO] No plugin in cfn metadata.
+2020/07/20 01:41:50.177602 [INFO] setting default port 8080 to application
+2020/07/20 01:41:50.177672 [INFO] Purge old process...
+2020/07/20 01:41:50.177712 [INFO] Register application processes...
+2020/07/20 01:41:50.177718 [INFO] Registering the proc: web
+
+2020/07/20 01:41:50.177730 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2020/07/20 01:41:50.183416 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/20 01:41:50.269721 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/20 01:41:50.273858 [INFO] Running command /bin/sh -c systemctl is-enabled eb-app.target
+2020/07/20 01:41:50.277408 [INFO] Copying file /opt/elasticbeanstalk/config/private/aws-eb.target to /etc/systemd/system/eb-app.target
+2020/07/20 01:41:50.278718 [INFO] Running command /bin/sh -c systemctl enable eb-app.target
+2020/07/20 01:41:50.364399 [ERROR] Created symlink from /etc/systemd/system/multi-user.target.wants/eb-app.target to /etc/systemd/system/eb-app.target.
+
+2020/07/20 01:41:50.364436 [INFO] Running command /bin/sh -c systemctl start eb-app.target
+2020/07/20 01:41:50.369564 [INFO] Running command /bin/sh -c systemctl enable web.service
+2020/07/20 01:41:50.452765 [ERROR] Created symlink from /etc/systemd/system/multi-user.target.wants/web.service to /etc/systemd/system/web.service.
+
+2020/07/20 01:41:50.452806 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2020/07/20 01:41:50.457991 [INFO] Running command /bin/sh -c systemctl is-active web.service
+2020/07/20 01:41:50.461455 [INFO] Running command /bin/sh -c systemctl start web.service
+2020/07/20 01:41:50.478744 [INFO] Executing instruction: start X-Ray
+2020/07/20 01:41:50.478758 [INFO] X-Ray is not enabled.
+2020/07/20 01:41:50.478763 [INFO] Executing instruction: start proxy with new configuration
+2020/07/20 01:41:50.478830 [INFO] Running command /bin/sh -c /usr/sbin/nginx -t -c /var/proxy/staging/nginx/nginx.conf
+2020/07/20 01:41:50.506577 [ERROR] nginx: the configuration file /var/proxy/staging/nginx/nginx.conf syntax is ok
+nginx: configuration file /var/proxy/staging/nginx/nginx.conf test is successful
+
+2020/07/20 01:41:50.507214 [INFO] Running command /bin/sh -c cp -rp /var/proxy/staging/nginx/. /etc/nginx
+2020/07/20 01:41:50.516111 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/20 01:41:50.528693 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/20 01:41:50.631549 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/20 01:41:50.639040 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/20 01:41:50.648720 [INFO] Running command /bin/sh -c systemctl is-active nginx.service
+2020/07/20 01:41:50.659091 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2020/07/20 01:41:50.745666 [INFO] Executing instruction: configureSqsd
+2020/07/20 01:41:50.745682 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2020/07/20 01:41:50.745689 [INFO] Executing instruction: startSqsd
+2020/07/20 01:41:50.745692 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2020/07/20 01:41:50.745697 [INFO] Executing instruction: Track pids in healthd
+2020/07/20 01:41:50.745702 [INFO] This is an enhanced health env...
+2020/07/20 01:41:50.745723 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2020/07/20 01:41:50.758197 [INFO] cfn-hup.service healthd.service nginx.service
+
+2020/07/20 01:41:50.758219 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/20 01:41:50.768641 [INFO] web.service
+
+2020/07/20 01:41:50.768753 [INFO] Executing instruction: RunPostDeployHooks
+2020/07/20 01:41:50.768767 [INFO] The dir .platform/hooks/postdeploy/ does not exist in the application. Skipping this step...
+2020/07/20 01:41:50.768771 [INFO] Executing cleanup logic
+2020/07/20 01:41:50.768835 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[]}]}
+
+2020/07/20 01:41:50.768985 [INFO] Platform Engine finished execution on command: app-deploy
+
+2020/07/22 01:53:39.661399 [INFO] Starting...
+2020/07/22 01:53:39.661451 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/22 01:53:39.661516 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/22 01:53:39.661576 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/22 01:53:39.757395 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/22 01:53:40.100063 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/22 01:53:40.380845 [INFO] checking whether command config-deploy is applicable to this instance...
+2020/07/22 01:53:40.380864 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/22 01:53:40.380869 [INFO] Engine command: (config-deploy)
+
+2020/07/22 01:53:40.381018 [INFO] Executing instruction: stopSqsd
+2020/07/22 01:53:40.381023 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/22 01:53:40.381027 [INFO] Executing instruction: StageApplication
+2020/07/22 01:53:40.381080 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2020/07/22 01:53:40.381101 [INFO] Running command /bin/sh -c /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2020/07/22 01:53:40.385192 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2020/07/22 01:53:40.385934 [INFO] Executing instruction: Install customer specified node.js version
+2020/07/22 01:53:40.385942 [INFO] installing specified nodejs version...
+2020/07/22 01:53:40.386003 [INFO] there is no nodejs version specified in package.json, skip installing specified version of nodejs
+2020/07/22 01:53:40.386010 [INFO] Executing instruction: Use NPM to install dependencies
+2020/07/22 01:53:40.386024 [INFO] use npm to install dependencies
+2020/07/22 01:53:40.386041 [INFO] No plugin in cfn metadata.
+2020/07/22 01:53:40.386065 [INFO] Running command /bin/sh -c npm config set jobs 1
+2020/07/22 01:53:40.630547 [INFO] Running command /bin/sh -c npm --production install
+2020/07/22 01:53:52.098116 [INFO] 
+> bcrypt@3.0.8 install /var/app/staging/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+[bcrypt] Success: "/var/app/staging/node_modules/bcrypt/lib/binding/bcrypt_lib.node" is installed via remote
+added 198 packages from 305 contributors and audited 393 packages in 10.579s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+2020/07/22 01:53:52.098139 [ERROR] npm WARN deprecated bcrypt@3.0.8: versions < v5.0.0 do not handle NUL in passwords properly
+npm WARN deprecated mkdirp@0.5.4: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+node-pre-gyp WARN Using needle for node-pre-gyp https download 
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules/chokidar/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm WARN udacity-c2-restapi@1.0.0 No description
+npm WARN udacity-c2-restapi@1.0.0 No repository field.
+
+
+2020/07/22 01:53:52.098170 [INFO] Running command /bin/sh -c npm --production rebuild
+2020/07/22 01:53:53.370841 [INFO] 
+> bcrypt@3.0.8 install /var/app/staging/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+[bcrypt] Success: "/var/app/staging/node_modules/bcrypt/lib/binding/bcrypt_lib.node" already installed
+Pass --update-binary to reinstall or --build-from-source to recompile
+@types/bcrypt@3.0.0 /var/app/staging/node_modules/@types/bcrypt
+@types/jsonwebtoken@8.5.0 /var/app/staging/node_modules/@types/jsonwebtoken
+@types/node@14.0.24 /var/app/staging/node_modules/@types/jsonwebtoken/node_modules/@types/node
+aws-sdk@2.717.0 /var/app/staging/node_modules/aws-sdk
+buffer@4.9.2 /var/app/staging/node_modules/buffer
+base64-js@1.3.1 /var/app/staging/node_modules/base64-js
+ieee754@1.1.13 /var/app/staging/node_modules/ieee754
+isarray@1.0.0 /var/app/staging/node_modules/isarray
+events@1.1.1 /var/app/staging/node_modules/events
+jmespath@0.15.0 /var/app/staging/node_modules/jmespath
+querystring@0.2.0 /var/app/staging/node_modules/querystring
+sax@1.2.1 /var/app/staging/node_modules/sax
+url@0.10.3 /var/app/staging/node_modules/url
+punycode@1.3.2 /var/app/staging/node_modules/punycode
+uuid@3.3.2 /var/app/staging/node_modules/uuid
+xml2js@0.4.19 /var/app/staging/node_modules/xml2js
+xmlbuilder@9.0.7 /var/app/staging/node_modules/xmlbuilder
+bcrypt@3.0.8 /var/app/staging/node_modules/bcrypt
+nan@2.14.0 /var/app/staging/node_modules/nan
+node-pre-gyp@0.14.0 /var/app/staging/node_modules/node-pre-gyp
+detect-libc@1.0.3 /var/app/staging/node_modules/detect-libc
+mkdirp@0.5.5 /var/app/staging/node_modules/mkdirp
+minimist@1.2.5 /var/app/staging/node_modules/minimist
+needle@2.5.0 /var/app/staging/node_modules/needle
+debug@3.2.6 /var/app/staging/node_modules/debug
+ms@2.1.2 /var/app/staging/node_modules/ms
+iconv-lite@0.4.24 /var/app/staging/node_modules/iconv-lite
+safer-buffer@2.1.2 /var/app/staging/node_modules/safer-buffer
+sax@1.2.4 /var/app/staging/node_modules/needle/node_modules/sax
+nopt@4.0.3 /var/app/staging/node_modules/nopt
+abbrev@1.1.1 /var/app/staging/node_modules/abbrev
+osenv@0.1.5 /var/app/staging/node_modules/osenv
+os-homedir@1.0.2 /var/app/staging/node_modules/os-homedir
+os-tmpdir@1.0.2 /var/app/staging/node_modules/os-tmpdir
+npm-packlist@1.4.8 /var/app/staging/node_modules/npm-packlist
+ignore-walk@3.0.3 /var/app/staging/node_modules/ignore-walk
+minimatch@3.0.4 /var/app/staging/node_modules/minimatch
+brace-expansion@1.1.11 /var/app/staging/node_modules/brace-expansion
+balanced-match@1.0.0 /var/app/staging/node_modules/balanced-match
+concat-map@0.0.1 /var/app/staging/node_modules/concat-map
+npm-bundled@1.1.1 /var/app/staging/node_modules/npm-bundled
+npm-normalize-package-bin@1.0.1 /var/app/staging/node_modules/npm-normalize-package-bin
+npmlog@4.1.2 /var/app/staging/node_modules/npmlog
+are-we-there-yet@1.1.5 /var/app/staging/node_modules/are-we-there-yet
+delegates@1.0.0 /var/app/staging/node_modules/delegates
+readable-stream@2.3.7 /var/app/staging/node_modules/readable-stream
+core-util-is@1.0.2 /var/app/staging/node_modules/core-util-is
+inherits@2.0.4 /var/app/staging/node_modules/inherits
+process-nextick-args@2.0.1 /var/app/staging/node_modules/process-nextick-args
+safe-buffer@5.1.2 /var/app/staging/node_modules/safe-buffer
+string_decoder@1.1.1 /var/app/staging/node_modules/string_decoder
+util-deprecate@1.0.2 /var/app/staging/node_modules/util-deprecate
+console-control-strings@1.1.0 /var/app/staging/node_modules/console-control-strings
+gauge@2.7.4 /var/app/staging/node_modules/gauge
+aproba@1.2.0 /var/app/staging/node_modules/aproba
+has-unicode@2.0.1 /var/app/staging/node_modules/has-unicode
+object-assign@4.1.1 /var/app/staging/node_modules/object-assign
+signal-exit@3.0.3 /var/app/staging/node_modules/signal-exit
+string-width@1.0.2 /var/app/staging/node_modules/string-width
+code-point-at@1.1.0 /var/app/staging/node_modules/code-point-at
+is-fullwidth-code-point@1.0.0 /var/app/staging/node_modules/is-fullwidth-code-point
+number-is-nan@1.0.1 /var/app/staging/node_modules/number-is-nan
+strip-ansi@3.0.1 /var/app/staging/node_modules/strip-ansi
+ansi-regex@2.1.1 /var/app/staging/node_modules/ansi-regex
+wide-align@1.1.3 /var/app/staging/node_modules/wide-align
+set-blocking@2.0.0 /var/app/staging/node_modules/set-blocking
+rc@1.2.8 /var/app/staging/node_modules/rc
+deep-extend@0.6.0 /var/app/staging/node_modules/deep-extend
+ini@1.3.5 /var/app/staging/node_modules/ini
+strip-json-comments@2.0.1 /var/app/staging/node_modules/strip-json-comments
+rimraf@2.7.1 /var/app/staging/node_modules/rimraf
+glob@7.1.6 /var/app/staging/node_modules/glob
+fs.realpath@1.0.0 /var/app/staging/node_modules/fs.realpath
+inflight@1.0.6 /var/app/staging/node_modules/inflight
+once@1.4.0 /var/app/staging/node_modules/once
+wrappy@1.0.2 /var/app/staging/node_modules/wrappy
+path-is-absolute@1.0.1 /var/app/staging/node_modules/path-is-absolute
+semver@5.7.1 /var/app/staging/node_modules/semver
+tar@4.4.13 /var/app/staging/node_modules/tar
+chownr@1.1.4 /var/app/staging/node_modules/chownr
+fs-minipass@1.2.7 /var/app/staging/node_modules/fs-minipass
+minipass@2.9.0 /var/app/staging/node_modules/minipass
+yallist@3.1.1 /var/app/staging/node_modules/yallist
+minizlib@1.3.3 /var/app/staging/node_modules/minizlib
+body-parser@1.19.0 /var/app/staging/node_modules/body-parser
+bytes@3.1.0 /var/app/staging/node_modules/bytes
+content-type@1.0.4 /var/app/staging/node_modules/content-type
+debug@2.6.9 /var/app/staging/node_modules/body-parser/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/body-parser/node_modules/ms
+depd@1.1.2 /var/app/staging/node_modules/depd
+http-errors@1.7.2 /var/app/staging/node_modules/http-errors
+inherits@2.0.3 /var/app/staging/node_modules/http-errors/node_modules/inherits
+setprototypeof@1.1.1 /var/app/staging/node_modules/setprototypeof
+statuses@1.5.0 /var/app/staging/node_modules/statuses
+toidentifier@1.0.0 /var/app/staging/node_modules/toidentifier
+on-finished@2.3.0 /var/app/staging/node_modules/on-finished
+ee-first@1.1.1 /var/app/staging/node_modules/ee-first
+qs@6.7.0 /var/app/staging/node_modules/qs
+raw-body@2.4.0 /var/app/staging/node_modules/raw-body
+unpipe@1.0.0 /var/app/staging/node_modules/unpipe
+type-is@1.6.18 /var/app/staging/node_modules/type-is
+media-typer@0.3.0 /var/app/staging/node_modules/media-typer
+mime-types@2.1.27 /var/app/staging/node_modules/mime-types
+mime-db@1.44.0 /var/app/staging/node_modules/mime-db
+email-validator@2.0.4 /var/app/staging/node_modules/email-validator
+express@4.17.1 /var/app/staging/node_modules/express
+accepts@1.3.7 /var/app/staging/node_modules/accepts
+negotiator@0.6.2 /var/app/staging/node_modules/negotiator
+array-flatten@1.1.1 /var/app/staging/node_modules/array-flatten
+content-disposition@0.5.3 /var/app/staging/node_modules/content-disposition
+cookie@0.4.0 /var/app/staging/node_modules/cookie
+cookie-signature@1.0.6 /var/app/staging/node_modules/cookie-signature
+debug@2.6.9 /var/app/staging/node_modules/express/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/express/node_modules/ms
+encodeurl@1.0.2 /var/app/staging/node_modules/encodeurl
+escape-html@1.0.3 /var/app/staging/node_modules/escape-html
+etag@1.8.1 /var/app/staging/node_modules/etag
+finalhandler@1.1.2 /var/app/staging/node_modules/finalhandler
+debug@2.6.9 /var/app/staging/node_modules/finalhandler/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/finalhandler/node_modules/ms
+parseurl@1.3.3 /var/app/staging/node_modules/parseurl
+fresh@0.5.2 /var/app/staging/node_modules/fresh
+merge-descriptors@1.0.1 /var/app/staging/node_modules/merge-descriptors
+methods@1.1.2 /var/app/staging/node_modules/methods
+path-to-regexp@0.1.7 /var/app/staging/node_modules/path-to-regexp
+proxy-addr@2.0.6 /var/app/staging/node_modules/proxy-addr
+forwarded@0.1.2 /var/app/staging/node_modules/forwarded
+ipaddr.js@1.9.1 /var/app/staging/node_modules/ipaddr.js
+range-parser@1.2.1 /var/app/staging/node_modules/range-parser
+send@0.17.1 /var/app/staging/node_modules/send
+debug@2.6.9 /var/app/staging/node_modules/send/node_modules/debug
+ms@2.0.0 /var/app/staging/node_modules/send/node_modules/debug/node_modules/ms
+destroy@1.0.4 /var/app/staging/node_modules/destroy
+mime@1.6.0 /var/app/staging/node_modules/mime
+ms@2.1.1 /var/app/staging/node_modules/send/node_modules/ms
+serve-static@1.14.1 /var/app/staging/node_modules/serve-static
+utils-merge@1.0.1 /var/app/staging/node_modules/utils-merge
+vary@1.1.2 /var/app/staging/node_modules/vary
+jsonwebtoken@8.5.1 /var/app/staging/node_modules/jsonwebtoken
+jws@3.2.2 /var/app/staging/node_modules/jws
+jwa@1.4.1 /var/app/staging/node_modules/jwa
+buffer-equal-constant-time@1.0.1 /var/app/staging/node_modules/buffer-equal-constant-time
+ecdsa-sig-formatter@1.0.11 /var/app/staging/node_modules/ecdsa-sig-formatter
+lodash.includes@4.3.0 /var/app/staging/node_modules/lodash.includes
+lodash.isboolean@3.0.3 /var/app/staging/node_modules/lodash.isboolean
+lodash.isinteger@4.0.4 /var/app/staging/node_modules/lodash.isinteger
+lodash.isnumber@3.0.3 /var/app/staging/node_modules/lodash.isnumber
+lodash.isplainobject@4.0.6 /var/app/staging/node_modules/lodash.isplainobject
+lodash.isstring@4.0.1 /var/app/staging/node_modules/lodash.isstring
+lodash.once@4.1.1 /var/app/staging/node_modules/lodash.once
+pg@7.18.2 /var/app/staging/node_modules/pg
+buffer-writer@2.0.0 /var/app/staging/node_modules/buffer-writer
+packet-reader@1.0.0 /var/app/staging/node_modules/packet-reader
+pg-connection-string@0.1.3 /var/app/staging/node_modules/pg-connection-string
+pg-packet-stream@1.1.0 /var/app/staging/node_modules/pg-packet-stream
+pg-pool@2.0.10 /var/app/staging/node_modules/pg-pool
+pg-types@2.2.0 /var/app/staging/node_modules/pg-types
+pg-int8@1.0.1 /var/app/staging/node_modules/pg-int8
+postgres-array@2.0.0 /var/app/staging/node_modules/postgres-array
+postgres-bytea@1.0.0 /var/app/staging/node_modules/postgres-bytea
+postgres-date@1.0.5 /var/app/staging/node_modules/postgres-date
+postgres-interval@1.2.0 /var/app/staging/node_modules/postgres-interval
+xtend@4.0.2 /var/app/staging/node_modules/xtend
+pgpass@1.0.2 /var/app/staging/node_modules/pgpass
+split@1.0.1 /var/app/staging/node_modules/split
+through@2.3.8 /var/app/staging/node_modules/through
+semver@4.3.2 /var/app/staging/node_modules/pg/node_modules/semver
+reflect-metadata@0.1.13 /var/app/staging/node_modules/reflect-metadata
+sequelize@5.22.3 /var/app/staging/node_modules/sequelize
+bluebird@3.7.2 /var/app/staging/node_modules/bluebird
+cls-bluebird@2.1.0 /var/app/staging/node_modules/cls-bluebird
+is-bluebird@1.0.2 /var/app/staging/node_modules/is-bluebird
+shimmer@1.2.1 /var/app/staging/node_modules/shimmer
+debug@4.1.1 /var/app/staging/node_modules/sequelize/node_modules/debug
+dottie@2.0.2 /var/app/staging/node_modules/dottie
+inflection@1.12.0 /var/app/staging/node_modules/inflection
+lodash@4.17.19 /var/app/staging/node_modules/lodash
+moment@2.27.0 /var/app/staging/node_modules/moment
+moment-timezone@0.5.31 /var/app/staging/node_modules/moment-timezone
+retry-as-promised@3.2.0 /var/app/staging/node_modules/retry-as-promised
+any-promise@1.3.0 /var/app/staging/node_modules/any-promise
+semver@6.3.0 /var/app/staging/node_modules/sequelize/node_modules/semver
+sequelize-pool@2.3.0 /var/app/staging/node_modules/sequelize-pool
+toposort-class@1.0.1 /var/app/staging/node_modules/toposort-class
+uuid@3.4.0 /var/app/staging/node_modules/sequelize/node_modules/uuid
+validator@10.11.0 /var/app/staging/node_modules/validator
+wkx@0.4.8 /var/app/staging/node_modules/wkx
+@types/node@14.0.24 /var/app/staging/node_modules/wkx/node_modules/@types/node
+sequelize-typescript@0.6.11 /var/app/staging/node_modules/sequelize-typescript
+@types/bluebird@3.5.26 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/bluebird
+@types/node@11.12.2 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/node
+@types/sequelize@4.28.1 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/sequelize
+@types/continuation-local-storage@3.2.2 /var/app/staging/node_modules/@types/continuation-local-storage
+@types/node@14.0.24 /var/app/staging/node_modules/@types/continuation-local-storage/node_modules/@types/node
+@types/lodash@4.14.158 /var/app/staging/node_modules/@types/lodash
+@types/validator@13.1.0 /var/app/staging/node_modules/sequelize-typescript/node_modules/@types/validator
+es6-shim@0.35.3 /var/app/staging/node_modules/es6-shim
+glob@7.1.2 /var/app/staging/node_modules/sequelize-typescript/node_modules/glob
+
+2020/07/22 01:53:53.370876 [ERROR] node-pre-gyp WARN Using needle for node-pre-gyp https download 
+
+2020/07/22 01:53:53.370885 [INFO] Executing instruction: check Procfile
+2020/07/22 01:53:53.370890 [INFO] checking Procfile
+2020/07/22 01:53:53.370904 [INFO] no Procfile found, generating Procfile
+2020/07/22 01:53:53.370920 [INFO] checking package.json file
+2020/07/22 01:53:53.370929 [INFO] found package.json file, using npm to start application
+2020/07/22 01:53:53.370985 [INFO] Executing instruction: configure X-Ray
+2020/07/22 01:53:53.370989 [INFO] X-Ray is not enabled.
+2020/07/22 01:53:53.370994 [INFO] Executing instruction: configure proxy Nginx
+2020/07/22 01:53:53.371289 [INFO] No plugin in cfn metadata.
+2020/07/22 01:53:53.377349 [INFO] Executing instruction: configure healthd specific proxy conf
+2020/07/22 01:53:53.380136 [INFO] copy healthd related conf to proxy staging dir ... 
+2020/07/22 01:53:53.380157 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/healthd_logformat.conf to /var/proxy/staging/nginx/conf.d/healthd_logformat.conf
+2020/07/22 01:53:53.381449 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/healthd.conf to /var/proxy/staging/nginx/conf.d/elasticbeanstalk/healthd.conf
+2020/07/22 01:53:53.382787 [INFO] Executing instruction: configure log streaming
+2020/07/22 01:53:53.382796 [INFO] log streaming is not enabled
+2020/07/22 01:53:53.382800 [INFO] disable log stream
+2020/07/22 01:53:53.382817 [INFO] Running command /bin/sh -c systemctl show -p PartOf amazon-cloudwatch-agent.service
+2020/07/22 01:53:53.388292 [INFO] Running command /bin/sh -c systemctl stop amazon-cloudwatch-agent.service
+2020/07/22 01:53:53.393136 [INFO] Executing instruction: GetToggleForceRotate
+2020/07/22 01:53:53.393166 [INFO] Checking if logs need forced rotation
+2020/07/22 01:53:53.393185 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/22 01:53:53.724388 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/22 01:53:54.006527 [INFO] Copying file /opt/elasticbeanstalk/config/private/rsyslog.conf to /etc/rsyslog.d/web.conf
+2020/07/22 01:53:54.007631 [INFO] Running command /bin/sh -c systemctl restart rsyslog.service
+2020/07/22 01:53:54.033990 [INFO] Executing instruction: PostBuildEbExtension
+2020/07/22 01:53:54.034009 [INFO] No plugin in cfn metadata.
+2020/07/22 01:53:54.034016 [INFO] Starting executing the config set Infra-EmbeddedPostBuild.
+2020/07/22 01:53:54.034033 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPostBuild
+2020/07/22 01:53:54.331471 [INFO] Finished executing the config set Infra-EmbeddedPostBuild.
+
+2020/07/22 01:53:54.331488 [INFO] Executing instruction: CleanEbExtensions
+2020/07/22 01:53:54.331506 [INFO] Cleaned ebextensions subdirectories from app staging directory.
+2020/07/22 01:53:54.331511 [INFO] Executing instruction: stop X-Ray
+2020/07/22 01:53:54.331514 [INFO] stop X-Ray ...
+2020/07/22 01:53:54.331532 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/07/22 01:53:54.337639 [WARN] stopProcess Warning: process xray is not registered 
+2020/07/22 01:53:54.337656 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/07/22 01:53:54.344778 [INFO] Executing instruction: stop proxy
+2020/07/22 01:53:54.344799 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/22 01:53:54.348966 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/07/22 01:53:54.373745 [INFO] Executing instruction: FlipApplication
+2020/07/22 01:53:54.373758 [INFO] Fetching environment variables...
+2020/07/22 01:53:54.373765 [INFO] No plugin in cfn metadata.
+2020/07/22 01:53:54.373769 [INFO] No plugin in cfn metadata.
+2020/07/22 01:53:54.373778 [INFO] setting default port 8080 to application
+2020/07/22 01:53:54.373931 [INFO] Purge old process...
+2020/07/22 01:53:54.373975 [INFO] Running command /bin/sh -c systemctl stop eb-app.target
+2020/07/22 01:53:54.380457 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/22 01:53:54.385162 [INFO] web.service
+
+2020/07/22 01:53:54.385186 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2020/07/22 01:53:54.389257 [INFO] Running command /bin/sh -c systemctl is-active web.service
+2020/07/22 01:53:54.392856 [INFO] Running command /bin/sh -c systemctl disable web.service
+2020/07/22 01:53:54.477012 [ERROR] Removed symlink /etc/systemd/system/multi-user.target.wants/web.service.
+
+2020/07/22 01:53:54.477119 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/22 01:53:54.561078 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/22 01:53:54.822965 [INFO] Register application processes...
+2020/07/22 01:53:54.822981 [INFO] Registering the proc: web
+
+2020/07/22 01:53:54.823024 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2020/07/22 01:53:54.838463 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/22 01:53:54.917668 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/22 01:53:54.921552 [INFO] Running command /bin/sh -c systemctl is-enabled eb-app.target
+2020/07/22 01:53:54.925043 [INFO] Running command /bin/sh -c systemctl enable eb-app.target
+2020/07/22 01:53:55.005555 [INFO] Running command /bin/sh -c systemctl start eb-app.target
+2020/07/22 01:53:55.011007 [INFO] Running command /bin/sh -c systemctl enable web.service
+2020/07/22 01:53:55.096735 [ERROR] Created symlink from /etc/systemd/system/multi-user.target.wants/web.service to /etc/systemd/system/web.service.
+
+2020/07/22 01:53:55.096775 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2020/07/22 01:53:55.101759 [INFO] Running command /bin/sh -c systemctl is-active web.service
+2020/07/22 01:53:55.105244 [INFO] Running command /bin/sh -c systemctl start web.service
+2020/07/22 01:53:55.122076 [INFO] Executing instruction: start X-Ray
+2020/07/22 01:53:55.122088 [INFO] X-Ray is not enabled.
+2020/07/22 01:53:55.122092 [INFO] Executing instruction: start proxy with new configuration
+2020/07/22 01:53:55.122112 [INFO] Running command /bin/sh -c /usr/sbin/nginx -t -c /var/proxy/staging/nginx/nginx.conf
+2020/07/22 01:53:55.139767 [ERROR] nginx: the configuration file /var/proxy/staging/nginx/nginx.conf syntax is ok
+nginx: configuration file /var/proxy/staging/nginx/nginx.conf test is successful
+
+2020/07/22 01:53:55.139998 [INFO] Running command /bin/sh -c cp -rp /var/proxy/staging/nginx/. /etc/nginx
+2020/07/22 01:53:55.146524 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/22 01:53:55.156074 [WARN] Warning: process nginx is already registered...
+Deregistering the process ...
+2020/07/22 01:53:55.156107 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/22 01:53:55.166293 [INFO] Running command /bin/sh -c systemctl is-active nginx.service
+2020/07/22 01:53:55.175129 [INFO] Running command /bin/sh -c systemctl disable nginx.service
+2020/07/22 01:53:55.291570 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/22 01:53:55.408087 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/22 01:53:55.419474 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2020/07/22 01:53:55.542871 [INFO] Running command /bin/sh -c systemctl reset-failed
+2020/07/22 01:53:55.551890 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/07/22 01:53:55.560212 [INFO] Running command /bin/sh -c systemctl is-active nginx.service
+2020/07/22 01:53:55.575067 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2020/07/22 01:53:55.670448 [INFO] Executing instruction: configureSqsd
+2020/07/22 01:53:55.670464 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2020/07/22 01:53:55.670468 [INFO] Executing instruction: startSqsd
+2020/07/22 01:53:55.670472 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2020/07/22 01:53:55.670476 [INFO] Executing instruction: Track pids in healthd
+2020/07/22 01:53:55.670480 [INFO] This is an enhanced health env...
+2020/07/22 01:53:55.670499 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2020/07/22 01:53:55.683838 [INFO] cfn-hup.service healthd.service nginx.service
+
+2020/07/22 01:53:55.683876 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/22 01:53:55.706931 [INFO] web.service
+
+2020/07/22 01:53:55.707102 [INFO] Executing cleanup logic
+2020/07/22 01:53:55.707181 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[]}]}
+
+2020/07/22 01:53:55.707340 [INFO] Platform Engine finished execution on command: config-deploy
+
+2020/07/22 02:03:11.643527 [INFO] Starting...
+2020/07/22 02:03:11.643573 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/22 02:03:11.643664 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/22 02:03:11.643721 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/22 02:03:11.956334 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/22 02:03:13.895553 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/22 02:03:14.222480 [INFO] checking whether command bundle-log is applicable to this instance...
+2020/07/22 02:03:14.222501 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/22 02:03:14.222505 [INFO] Engine command: (bundle-log)
+
+2020/07/22 02:03:14.222554 [INFO] Executing instruction: GetBundleLogs
+2020/07/22 02:03:14.222558 [INFO] Bundle Logs...
+2020/07/22 02:03:14.712249 [INFO] Executing cleanup logic
+2020/07/22 02:03:14.712337 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[]}]}
+
+2020/07/22 02:03:14.712400 [INFO] Platform Engine finished execution on command: bundle-log
+
+2020/07/22 02:12:34.888844 [INFO] Starting...
+2020/07/22 02:12:34.888880 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/22 02:12:34.888941 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/22 02:12:34.888997 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/22 02:12:34.961945 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/22 02:12:35.303322 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/22 02:12:35.580884 [INFO] checking whether command restart-app-server is applicable to this instance...
+2020/07/22 02:12:35.580905 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/22 02:12:35.580910 [INFO] Engine command: (restart-app-server)
+
+2020/07/22 02:12:35.580965 [INFO] Executing instruction: stopSqsd
+2020/07/22 02:12:35.580970 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/22 02:12:35.580975 [INFO] Executing instruction: configure X-Ray
+2020/07/22 02:12:35.580978 [INFO] X-Ray is not enabled.
+2020/07/22 02:12:35.580982 [INFO] Executing instruction: stop X-Ray
+2020/07/22 02:12:35.580986 [INFO] stop X-Ray ...
+2020/07/22 02:12:35.581003 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/07/22 02:12:35.587359 [WARN] stopProcess Warning: process xray is not registered 
+2020/07/22 02:12:35.587390 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/07/22 02:12:35.594427 [INFO] Executing instruction: start X-Ray
+2020/07/22 02:12:35.594437 [INFO] X-Ray is not enabled.
+2020/07/22 02:12:35.594442 [INFO] Executing instruction: RestartAppServer
+2020/07/22 02:12:35.594445 [INFO] Restarting customer application...
+2020/07/22 02:12:35.594457 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/07/22 02:12:35.613497 [INFO] Running command /bin/sh -c systemctl restart eb-app.target
+2020/07/22 02:12:35.620187 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2020/07/22 02:12:35.655873 [INFO] Executing instruction: configureSqsd
+2020/07/22 02:12:35.655888 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2020/07/22 02:12:35.655893 [INFO] Executing instruction: startSqsd
+2020/07/22 02:12:35.655897 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2020/07/22 02:12:35.655901 [INFO] Executing instruction: Track pids in healthd
+2020/07/22 02:12:35.655905 [INFO] This is an enhanced health env...
+2020/07/22 02:12:35.655929 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2020/07/22 02:12:35.662276 [INFO] cfn-hup.service healthd.service nginx.service
+
+2020/07/22 02:12:35.662300 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/22 02:12:35.667198 [INFO] web.service
+
+2020/07/22 02:12:35.667304 [ERROR] update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory
+2020/07/22 02:12:35.667315 [ERROR] An error occurred during execution of command [restart-app-server] - [Track pids in healthd]. Stop running the command. Error: update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory 
+
+2020/07/22 02:12:35.667319 [INFO] Executing cleanup logic
+2020/07/22 02:12:35.667382 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[]}]}
+
+2020/07/22 02:12:35.667394 [INFO] Platform Engine finished execution on command: restart-app-server
+
+2020/07/22 02:33:25.019837 [INFO] Starting...
+2020/07/22 02:33:25.019880 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/22 02:33:25.019941 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/22 02:33:25.019999 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/22 02:33:25.113333 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/22 02:33:25.452549 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/22 02:33:25.783258 [INFO] checking whether command restart-app-server is applicable to this instance...
+2020/07/22 02:33:25.783280 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/22 02:33:25.783284 [INFO] Engine command: (restart-app-server)
+
+2020/07/22 02:33:25.783335 [INFO] Executing instruction: stopSqsd
+2020/07/22 02:33:25.783340 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/22 02:33:25.783344 [INFO] Executing instruction: configure X-Ray
+2020/07/22 02:33:25.783348 [INFO] X-Ray is not enabled.
+2020/07/22 02:33:25.783352 [INFO] Executing instruction: stop X-Ray
+2020/07/22 02:33:25.783356 [INFO] stop X-Ray ...
+2020/07/22 02:33:25.783372 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/07/22 02:33:25.789983 [WARN] stopProcess Warning: process xray is not registered 
+2020/07/22 02:33:25.790015 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/07/22 02:33:25.798260 [INFO] Executing instruction: start X-Ray
+2020/07/22 02:33:25.798271 [INFO] X-Ray is not enabled.
+2020/07/22 02:33:25.798276 [INFO] Executing instruction: RestartAppServer
+2020/07/22 02:33:25.798279 [INFO] Restarting customer application...
+2020/07/22 02:33:25.798291 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/07/22 02:33:25.817739 [INFO] Running command /bin/sh -c systemctl restart eb-app.target
+2020/07/22 02:33:25.824435 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2020/07/22 02:33:25.860473 [INFO] Executing instruction: configureSqsd
+2020/07/22 02:33:25.860488 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2020/07/22 02:33:25.860492 [INFO] Executing instruction: startSqsd
+2020/07/22 02:33:25.860496 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2020/07/22 02:33:25.860500 [INFO] Executing instruction: Track pids in healthd
+2020/07/22 02:33:25.860504 [INFO] This is an enhanced health env...
+2020/07/22 02:33:25.860524 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2020/07/22 02:33:25.866890 [INFO] cfn-hup.service healthd.service nginx.service
+
+2020/07/22 02:33:25.866912 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/22 02:33:25.871450 [INFO] web.service
+
+2020/07/22 02:33:25.871508 [ERROR] update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory
+2020/07/22 02:33:25.871520 [ERROR] An error occurred during execution of command [restart-app-server] - [Track pids in healthd]. Stop running the command. Error: update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory 
+
+2020/07/22 02:33:25.871525 [INFO] Executing cleanup logic
+2020/07/22 02:33:25.871594 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[]}]}
+
+2020/07/22 02:33:25.871607 [INFO] Platform Engine finished execution on command: restart-app-server
+
+2020/07/22 02:39:08.464794 [INFO] Starting...
+2020/07/22 02:39:08.464831 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/22 02:39:08.464892 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/22 02:39:08.464948 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/22 02:39:08.572971 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/22 02:39:08.907879 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/22 02:39:09.246062 [INFO] checking whether command restart-app-server is applicable to this instance...
+2020/07/22 02:39:09.246082 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/22 02:39:09.246087 [INFO] Engine command: (restart-app-server)
+
+2020/07/22 02:39:09.246138 [INFO] Executing instruction: stopSqsd
+2020/07/22 02:39:09.246143 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/22 02:39:09.246147 [INFO] Executing instruction: configure X-Ray
+2020/07/22 02:39:09.246150 [INFO] X-Ray is not enabled.
+2020/07/22 02:39:09.246154 [INFO] Executing instruction: stop X-Ray
+2020/07/22 02:39:09.246157 [INFO] stop X-Ray ...
+2020/07/22 02:39:09.246172 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/07/22 02:39:09.252573 [WARN] stopProcess Warning: process xray is not registered 
+2020/07/22 02:39:09.252592 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/07/22 02:39:09.259797 [INFO] Executing instruction: start X-Ray
+2020/07/22 02:39:09.259807 [INFO] X-Ray is not enabled.
+2020/07/22 02:39:09.259811 [INFO] Executing instruction: RestartAppServer
+2020/07/22 02:39:09.259815 [INFO] Restarting customer application...
+2020/07/22 02:39:09.259826 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/07/22 02:39:09.285750 [INFO] Running command /bin/sh -c systemctl restart eb-app.target
+2020/07/22 02:39:09.292422 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2020/07/22 02:39:09.328944 [INFO] Executing instruction: configureSqsd
+2020/07/22 02:39:09.328960 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2020/07/22 02:39:09.328964 [INFO] Executing instruction: startSqsd
+2020/07/22 02:39:09.328969 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2020/07/22 02:39:09.328973 [INFO] Executing instruction: Track pids in healthd
+2020/07/22 02:39:09.328977 [INFO] This is an enhanced health env...
+2020/07/22 02:39:09.328996 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2020/07/22 02:39:09.335487 [INFO] cfn-hup.service healthd.service nginx.service
+
+2020/07/22 02:39:09.335510 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/22 02:39:09.340162 [INFO] web.service
+
+2020/07/22 02:39:09.340231 [ERROR] update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory
+2020/07/22 02:39:09.340242 [ERROR] An error occurred during execution of command [restart-app-server] - [Track pids in healthd]. Stop running the command. Error: update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory 
+
+2020/07/22 02:39:09.340246 [INFO] Executing cleanup logic
+2020/07/22 02:39:09.340315 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[]}]}
+
+2020/07/22 02:39:09.340326 [INFO] Platform Engine finished execution on command: restart-app-server
+
+2020/07/23 00:23:12.836353 [INFO] Starting...
+2020/07/23 00:23:12.836390 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/23 00:23:12.836452 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/23 00:23:12.836508 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/23 00:23:12.980554 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/23 00:23:13.311225 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/23 00:23:13.589920 [INFO] checking whether command restart-app-server is applicable to this instance...
+2020/07/23 00:23:13.589941 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/23 00:23:13.589945 [INFO] Engine command: (restart-app-server)
+
+2020/07/23 00:23:13.589997 [INFO] Executing instruction: stopSqsd
+2020/07/23 00:23:13.590002 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/23 00:23:13.590006 [INFO] Executing instruction: configure X-Ray
+2020/07/23 00:23:13.590010 [INFO] X-Ray is not enabled.
+2020/07/23 00:23:13.590014 [INFO] Executing instruction: stop X-Ray
+2020/07/23 00:23:13.590018 [INFO] stop X-Ray ...
+2020/07/23 00:23:13.590037 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/07/23 00:23:13.596451 [WARN] stopProcess Warning: process xray is not registered 
+2020/07/23 00:23:13.596482 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/07/23 00:23:13.603611 [INFO] Executing instruction: start X-Ray
+2020/07/23 00:23:13.603621 [INFO] X-Ray is not enabled.
+2020/07/23 00:23:13.603626 [INFO] Executing instruction: RestartAppServer
+2020/07/23 00:23:13.603630 [INFO] Restarting customer application...
+2020/07/23 00:23:13.603642 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/07/23 00:23:13.629724 [INFO] Running command /bin/sh -c systemctl restart eb-app.target
+2020/07/23 00:23:13.636640 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2020/07/23 00:23:13.674171 [INFO] Executing instruction: configureSqsd
+2020/07/23 00:23:13.674185 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2020/07/23 00:23:13.674190 [INFO] Executing instruction: startSqsd
+2020/07/23 00:23:13.674194 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2020/07/23 00:23:13.674198 [INFO] Executing instruction: Track pids in healthd
+2020/07/23 00:23:13.674202 [INFO] This is an enhanced health env...
+2020/07/23 00:23:13.674221 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2020/07/23 00:23:13.680671 [INFO] cfn-hup.service healthd.service nginx.service
+
+2020/07/23 00:23:13.680706 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2020/07/23 00:23:13.685397 [INFO] web.service
+
+2020/07/23 00:23:13.685456 [ERROR] update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory
+2020/07/23 00:23:13.685467 [ERROR] An error occurred during execution of command [restart-app-server] - [Track pids in healthd]. Stop running the command. Error: update processes [web cfn-hup healthd nginx] pid symlinks failed with error Read pid source file /var/pids/web.pid failed with error:open /var/pids/web.pid: no such file or directory 
+
+2020/07/23 00:23:13.685472 [INFO] Executing cleanup logic
+2020/07/23 00:23:13.685542 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[]}]}
+
+2020/07/23 00:23:13.685554 [INFO] Platform Engine finished execution on command: restart-app-server
+
+2020/07/23 00:39:21.009211 [INFO] Starting...
+2020/07/23 00:39:21.009249 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/23 00:39:21.009309 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/23 00:39:21.009365 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/23 00:39:21.096578 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/23 00:39:21.432285 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:904333704588:stack/awseb-e-xubwbu3mnp-stack/8cff4170-ca29-11ea-b48c-0e91a2a31d14 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/23 00:39:21.768994 [INFO] checking whether command bundle-log is applicable to this instance...
+2020/07/23 00:39:21.769016 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/23 00:39:21.769020 [INFO] Engine command: (bundle-log)
+
+2020/07/23 00:39:21.769073 [INFO] Executing instruction: GetBundleLogs
+2020/07/23 00:39:21.769078 [INFO] Bundle Logs...

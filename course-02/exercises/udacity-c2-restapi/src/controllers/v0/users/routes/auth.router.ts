@@ -30,8 +30,8 @@ function generateJWT(user: User): string {
 }
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
-    //return next();
-     if (!req.headers || !req.headers.authorization){
+    return next();
+     /*if (!req.headers || !req.headers.authorization){
          return res.status(401).send({ message: 'No authorization headers.' });
      }
     
@@ -48,7 +48,7 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
          return res.status(500).send({ auth: false, message: 'Failed to authenticate.' });
        }
        return next();
-     });
+     });*/
 }
 
 router.get('/verification', 

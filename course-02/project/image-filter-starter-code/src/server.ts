@@ -37,20 +37,19 @@ import { Router, Request, Response } from 'express';
       var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
       console.log("full url is " +fullUrl);
       var image_url = req.query.image_url;
-      if(!image_url)
+      if(image_url)
        {
-        res.status(400).send('Invalid URL');
-       }
-      else
-       { 
         var image = await filterImageFromURL(image_url);
         res.status(200).sendFile(image, function(err){
         if(!err)
          {
            deleteLocalFiles([image]);
          }
-      });
-    }
+        });
+       }
+      else {
+        res.status(400).send('Invalid URL');
+           }
   });
    
                 

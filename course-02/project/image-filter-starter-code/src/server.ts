@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { response } from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { Router, Request, Response } from 'express';
 
 (async () => {
 
@@ -12,6 +13,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
+  const router: Router = Router();
 
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
@@ -26,10 +28,34 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   //    image_url: URL of a publicly accessible image
   // RETURNS
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
-
+  
   /**************************************************************************** */
 
   //! END @TODO1
+
+  app.get('/filteredimage', async (req: Request, res: Response) =>{
+      var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+      console.log("full url is " +fullUrl);
+      var image_url = req.query.image_url;
+
+      if(!image_url){
+
+      return res.status(400).send('invalid image url');
+
+    }
+
+    else{ 
+        var image = await filterImageFromURL(image_url);
+        res.status(200).sendFile(image, function(err){
+        if(!err){
+                let filesToDelete = [image];
+                deleteLocalFiles(filesToDelete);
+                }
+      });
+    }
+  });
+   
+                
   
   // Root Endpoint
   // Displays a simple message to the user
